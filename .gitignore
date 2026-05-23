@@ -1,0 +1,78 @@
+# ============================================================
+# 6502 Chip Design — .gitignore
+# IIC-OSIC-TOOLS / OpenROAD / Magic / Xschem / ngspice
+# ============================================================
+
+# --- PDK (too large; install separately via IIC-OSIC-TOOLS) ---
+pdk/
+PDK/
+sky130*/
+gf180*/
+ihp*/
+
+# --- Simulation outputs ---
+*.raw
+*.csv
+*.log
+*.out
+*.sim
+*.tr0
+*.ac0
+*.dc0
+*.op0
+*.noise0
+*.tf0
+*.sp.out
+*.ngspice
+
+# --- ngspice / spectre temp files ---
+*.tmp
+*.bak
+*.backup
+*~
+
+# --- Magic VLSI ---
+*.mag.bak
+*.lef.bak
+*.gds.bak
+*.ext
+*.sim
+*.nodes
+*.res.ext
+*.cap
+__pycache__/
+
+# --- OpenROAD / OpenLane run dirs ---
+runs/
+results/
+reports/
+logs/
+objects/
+tmp/
+or_temp/
+
+# --- KLayout ---
+*.lyrdb
+*.lys
+
+# --- Xschem ---
+*.log
+xschem_library/bak/
+
+# --- Calibre / DRC reports (large) ---
+*.db
+*.erc
+*.drc
+
+# --- OS and editor noise ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Docker / container leftovers ---
+.iic-osic-tools/
