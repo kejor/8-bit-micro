@@ -1,0 +1,3 @@
+- [User Profile](user-profile.md) — Kevin's background, dual goals (learning + portfolio), targeting 2027 job market
+- [Project Status](project-status.md) — milestone tracker, phase plan, repo state, deadline 2026-10-01
+- [Project Decisions](project-decisions.md) — toolchain (IIC-OSIC-TOOLS), PDK (sky130), full-custom flow, scope TBD

@@ -1,0 +1,1 @@
+- [User Profile](user_profile.md) — Kevin's background: prior IIC-OSIC-TOOLS/Xschem/ngspice experience, 6502 HDL project, deadline 2026-10-01
