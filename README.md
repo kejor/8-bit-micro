@@ -1,6 +1,6 @@
 # 8-bit-micro — 8-bit Microcontroller (6502-Inspired)
 
-A from-scratch full-custom silicon implementation of an 8-bit microcontroller inspired by the MOS 6502, developed using the open-source [IIC-OSIC-TOOLS](https://github.com/iic-jku/iic-osic-tools) environment and the SkyWater sky130 PDK.
+A from-scratch full-custom silicon implementation of an 8-bit microcontroller inspired by the MOS 6502, developed using the open-source [IIC-OSIC-TOOLS](https://github.com/iic-jku/iic-osic-tools) environment and the GlobalFoundries GF180MCU-D PDK.
 
 ## Project Goal
 
@@ -11,7 +11,7 @@ Design and simulate a functional 6502-inspired 8-bit CPU core plus a bandgap ref
 | Tool | Purpose |
 |------|---------|
 | [IIC-OSIC-TOOLS](https://github.com/iic-jku/iic-osic-tools) | Docker container with all EDA tools pre-installed |
-| [Xschem](https://xschem.sourceforge.io) | Schematic capture (transistor-level, sky130 PDK) |
+| [Xschem](https://xschem.sourceforge.io) | Schematic capture (transistor-level, GF180MCU-D PDK) |
 | [ngspice](https://ngspice.sourceforge.io) | SPICE simulation |
 | [Magic VLSI](http://opencircuitdesign.com/magic/) | Layout editor + DRC/LVS |
 | [Netgen](http://opencircuitdesign.com/netgen/) | LVS netlist comparison |
@@ -35,13 +35,17 @@ Design and simulate a functional 6502-inspired 8-bit CPU core plus a bandgap ref
    ```bash
    bash tools/start_x.sh
    ```
-2. Clone this repo inside the container's shared workspace (`~/eda/designs/`).
-3. Open schematics with Xschem, run simulations via ngspice.
+2. Inside the container, activate the GF180MCU-D PDK:
+   ```bash
+   sak-pdk gf180mcuD
+   ```
+3. Clone this repo inside the container's shared workspace (`~/eda/designs/`).
+4. Open schematics with Xschem, run simulations via ngspice.
 
 ## References
 
 - [MOS 6502 Datasheet](http://archive.6502.org/datasheets/mos_6500_mpu_preliminary_may_1976.pdf)
 - [Visual 6502 Project](http://www.visual6502.org/)
 - [6502.org](http://www.6502.org/)
-- [SkyWater sky130 PDK](https://github.com/google/skywater-pdk)
+- [GF180MCU-D PDK](https://github.com/google/gf180mcu-pdk)
 - [IIC-OSIC-TOOLS Documentation](https://github.com/iic-jku/iic-osic-tools)
