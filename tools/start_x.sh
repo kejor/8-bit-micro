@@ -68,12 +68,9 @@ fi
 
 # Fixed potential errors in the container due to reduced access to syscalls.
 PARAMS="--security-opt seccomp=unconfined"
-# SET YOUR DESIGN PATH RIGHT!
+# Default DESIGNS to the project root (parent of this script's directory).
 if [ -z ${DESIGNS+z} ]; then
-    DESIGNS=$HOME/eda/designs
-    if [ ! -d "$DESIGNS" ]; then
-        ${ECHO_IF_DRY_RUN} mkdir -p "$DESIGNS"
-    fi
+    DESIGNS="$(cd "$(dirname "$0")/.." && pwd)"
     [ -z "${IIC_OSIC_TOOLS_QUIET}" ] && echo "[INFO] Design directory auto-set to $DESIGNS."
 fi
 
@@ -305,6 +302,7 @@ if [ "$(docker ps -aq -f name="${CONTAINER_NAME}")" ]; then
     echo
     if [[ $k = s ]] ; then
         ${ECHO_IF_DRY_RUN} docker start "${CONTAINER_NAME}"
+        ${ECHO_IF_DRY_RUN} docker exec "${CONTAINER_NAME}" bash -c "sed -i 's/^export PDK=.*/export PDK=gf180mcuD/' /headless/.bashrc"
     elif [[ $k = r ]] ; then
         ${ECHO_IF_DRY_RUN} docker rm "${CONTAINER_NAME}"
     fi
@@ -315,6 +313,7 @@ else
     # Disable SC2086, $PARAMS must be globbed and splitted.
     # shellcheck disable=SC2086
     ${ECHO_IF_DRY_RUN} docker run -d --user "${CONTAINER_USER}:${CONTAINER_GROUP}" -e "DISPLAY=${DISP}" -v "${DESIGNS}":"/foss/designs":rw ${PARAMS} --name "${CONTAINER_NAME}" "${DOCKER_USER}/${DOCKER_IMAGE}:${DOCKER_TAG}"
+    ${ECHO_IF_DRY_RUN} docker exec "${CONTAINER_NAME}" bash -c "sed -i 's/^export PDK=.*/export PDK=gf180mcuD/' /headless/.bashrc"
 fi
 
 if [ -n "${SOCAT_PID}" ]; then
