@@ -5,15 +5,17 @@ metadata:
   type: project
 ---
 
-As of 2026-06-06, the project is in the very early stages with ~17 weeks to the 2026-10-01 deadline.
+As of 2026-06-11, the project is in early active development with ~16 weeks to the 2026-10-01 deadline.
 
 **Major pivot on 2026-06-06:** Project scope expanded from pure 6502 CPU to a mixed-signal MCU — adding analog blocks (bandgap reference, DAC, ADC, clock generation, possibly a 5V-compatible process). After PM assessment, agreed scope was narrowed to: **CPU core + one analog peripheral (bandgap reference)**. Full ADC/DAC/clock-gen deferred as too ambitious.
 
+**PDK switch on 2026-06-11:** Switched from SkyWater sky130 to **GlobalFoundries GF180MCU-D**. All schematics going forward use GF180MCU-D primitives.
+
 Milestone status:
-- [ ] Toolchain verified / IIC-OSIC-TOOLS smoke test
+- [x] Toolchain verified / IIC-OSIC-TOOLS smoke test — done 2026-06-11
 - [ ] Architecture study / reference schematic reviewed
-- [ ] First subcircuit in Xschem (e.g., NAND gate or inverter from sky130 primitives)
-- [ ] ngspice simulation of first subcircuit passing
+- [x] First subcircuit in Xschem (inverter, GF180MCU-D) — done 2026-06-11
+- [x] ngspice simulation of first subcircuit passing — done 2026-06-11
 - [ ] 8-bit ALU schematic + sim
 - [ ] Register file schematic + sim
 - [ ] Instruction fetch / decode schematic
@@ -34,12 +36,12 @@ Recommended phase plan (revised 2026-06-06):
 - Weeks 12-15 (Aug 22 - Sep 19): Integration + end-to-end sim, loose MCU story
 - Weeks 16-17 (Sep 19 - Oct 01): Polish, documentation, portfolio write-up
 
-Risk flags (as of 2026-06-06):
-- Zero milestones complete as of June 6 — toolchain unblock is week 1 priority, no exceptions
+Risk flags (updated 2026-06-11):
+- [RESOLVED] Toolchain / IIC-OSIC-TOOLS — fully operational as of 2026-06-11, no longer a risk
 - MCU scope pivot is a risk amplifier — must hold the line on CPU + bandgap only
 - Full-custom transistor-level CPU is already extremely ambitious; analog on top makes discipline critical
-- IIC-OSIC-TOOLS reinstall can eat days if Docker issues arise
 - ADC, DAC, clock gen, and 5V process pivot are explicitly out of scope for October deadline
+- Week 2 priority: move from single cell to first functional block — start the 8-bit ALU
 
 **Why:** Deadline is hard (job hunting 2027). A CPU + one polished analog block is a better portfolio story than three half-finished blocks. Scope discipline is the difference between shipping and slipping.
 **How to apply:** Hold the line on CPU + bandgap. If CPU slips past August 1, cut bandgap scope (just design + sim, no layout). Raise alarm if any week goes by with zero commits.
