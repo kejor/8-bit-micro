@@ -1,13 +1,15 @@
 ---
 name: project-status
-description: Current milestone completion state and timeline risk flags for the 6502 MCU project
+description: Current milestone completion state and timeline risk flags for the 8-bit MCU project
 metadata:
   type: project
 ---
 
-As of 2026-06-11, the project is in early active development with ~16 weeks to the 2026-10-01 deadline.
+As of 2026-06-21, the project is in active development with ~14 weeks to the 2026-10-01 deadline.
 
-**Major pivot on 2026-06-06:** Project scope expanded from pure 6502 CPU to a mixed-signal MCU — adding analog blocks (bandgap reference, DAC, ADC, clock generation, possibly a 5V-compatible process). After PM assessment, agreed scope was narrowed to: **CPU core + one analog peripheral (bandgap reference)**. Full ADC/DAC/clock-gen deferred as too ambitious.
+**Architecture pivot on 2026-06-21:** Project is no longer 6502-inspired. Kevin is now designing an original 8-bit microcontroller (not a 6502 clone or derivative). Instruction set, datapath, and control unit are to be defined by Kevin independently.
+
+**Earlier pivot on 2026-06-06:** Project scope expanded to include analog blocks; narrowed to **CPU core + one analog peripheral (bandgap reference)**. Full ADC/DAC/clock-gen deferred as too ambitious.
 
 **PDK switch on 2026-06-11:** Switched from SkyWater sky130 to **GlobalFoundries GF180MCU-D**. All schematics going forward use GF180MCU-D primitives.
 
@@ -19,7 +21,7 @@ Milestone status:
 - [ ] 8-bit ALU schematic + sim
 - [ ] Register file schematic + sim
 - [ ] Instruction fetch / decode schematic
-- [ ] Subset of 6502 instructions working in sim (target: ~12 key instructions)
+- [ ] Subset of custom ISA instructions working in sim (target: ~12 key instructions)
 - [ ] Bandgap reference design + ngspice corner sims (TT/SS/FF/SF/FS, temp sweep)
 - [ ] Bandgap Magic VLSI layout, DRC/LVS clean
 - [ ] Integration: bandgap feeding bias into CPU or analog interface defined

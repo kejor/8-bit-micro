@@ -5,7 +5,7 @@ metadata:
   type: user
 ---
 
-Kevin is building an 8-bit microprocessor inspired by the MOS 6502 as a summer 2026 learning and portfolio project. Hard deadline: 2026-10-01 (~16 weeks from 2026-06-11).
+Kevin is building an 8-bit microcontroller (NOT 6502-inspired — pivot on 2026-06-21) as a summer 2026 learning and portfolio project. Hard deadline: 2026-10-01 (~14 weeks from 2026-06-21).
 
 He has prior hands-on experience with:
 - Xschem (schematic capture) — comfortable
