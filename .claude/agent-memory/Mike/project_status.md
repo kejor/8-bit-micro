@@ -18,6 +18,9 @@ Milestone status:
 - [ ] Architecture study / reference schematic reviewed
 - [x] First subcircuit in Xschem (inverter, GF180MCU-D) — done 2026-06-11
 - [x] ngspice simulation of first subcircuit passing — done 2026-06-11
+- [x] AND gate schematic + testbench — done 2026-06-21 (building toward full adder)
+- [ ] OR gate + XOR gate schematics — in progress as of 2026-06-21
+- [ ] Full adder (from AND/OR/XOR cells)
 - [ ] 8-bit ALU schematic + sim
 - [ ] Register file schematic + sim
 - [ ] Instruction fetch / decode schematic

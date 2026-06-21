@@ -33,6 +33,8 @@ Phase plan:
 - August: Control unit + integration
 - September: Full sim, DRC/LVS, polish, documentation
 
-As of 2026-06-11: toolchain is fully operational. First subcircuit (inverter) committed in Xschem with GF180MCU-D primitives (inv.sch, inv.sym, inv_tb.sch). ngspice simulation of inverter passed. Three milestones complete — project is on track entering week 2.
+As of 2026-06-11: toolchain is fully operational. First subcircuit (inverter) committed in Xschem with GF180MCU-D primitives (inv.sch, inv.sym, inv_tb.sch). ngspice simulation of inverter passed.
+
+As of 2026-06-21: AND gate schematic and testbench complete. Kevin is working bottom-up on logic gate cells (AND, OR, XOR) before assembling a full adder — the intended building block for the ALU. OR gate and XOR gate are next.
 
 [[project-status]]
