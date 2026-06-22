@@ -1,35 +1,37 @@
-# Session — 2026-06-21
+# Session — 2026-06-21-2
 
 ## Topics Covered
-- Bus architecture decision: Von Neumann vs. Harvard (closed: Von Neumann)
-- Selecting first build target: the ALU
-- ALU/ISA coupling via status flags (Z, C, N, V)
-- Signed overflow / V flag detection (Socratic walkthrough, COMPLETED)
-  - 8-bit signed range: 127 (2^7-1) to -128 (-2^7)
-  - 127 + 1 example; confirmed zero-indexing, bit 7 = MSB/sign bit
-  - Carry signals at MSB: carry-in[7] = 1, carry-out[7] = 0
-  - Landed the rule: V = carry_in[7] XOR carry_out[7] — a single XOR2 gate
-  - Schematic implication: one XOR2 cell tapping the carry-in/carry-out nets of the MSB full adder
+- Full adder implementation approach (Kevin asked for a direct recommendation, not Socratic)
+- Recommended methodology: gate-level first, then transistor-level for ONE gate
+  - Gate-level: Sum = A XOR B XOR Cin; Cout = (A AND B) OR (Cin AND (A XOR B))
+  - Noted the shared (A XOR B) term feeds both Sum and Cout — wire once, fan out
+  - Simulate with abstract symbols (XOR/AND/OR/INV) to confirm truth table FIRST
+  - Then drill into ONE gate at transistor level — recommended building XOR in CMOS from scratch
+- CMOS complementary logic structure: pull-up PMOS network + pull-down NMOS network as duals
+- Guidance: don't hand-build every gate. Build one, internalize the duality, pull the rest
+  from GF180MCU-D standard cells.
+- "Optimize later" affirmed as correct for a pure-learning goal (no tapeout, no sizing/timing yet)
 
 ## Where We Left Off
-V-flag concept fully landed. Kevin understands signed overflow = disagreement between the carry
-into and out of the sign bit, implemented as one XOR2 gate. Clean payoff reached. Ready to move
-from concept to committing the ALU's flag set and operation list before drawing the schematic.
+Gave Kevin the clear recommendation and a concrete first step: draw the gate-level full adder in
+Xschem (Sum + Cout), simulate with abstract symbols, confirm all 8 input combos before touching
+transistors. He has NOT started drawing yet. Next concrete deliverable is that gate-level schematic.
 
 ## Kevin's Current Understanding
-- Solid on signed two's-complement range limits (127 to -128) and zero-indexed bit numbering / sign bit.
-- Understands flags are where the ALU meets the ISA.
-- Fully grasps V detection: V = carry_in[7] XOR carry_out[7], one XOR2 gate, plus the intuition
-  (sign bit corrupted when carry-in != carry-out at the MSB).
-- Reasoned independently to Von Neumann earlier; understands the structural fetch/memory hazard.
+- Articulated his own goal clearly: learn to build a complex chip from basic building blocks;
+  explicitly not chasing smallest/fastest. Pure methodology/learning driver.
+- Carries forward solid grasp of V-flag detection and signed two's-complement from prior session.
+- Now has the methodology framing: logic correctness at gate level BEFORE CMOS topology.
+- Has NOT yet built a CMOS gate by hand — XOR transistor-level is the upcoming hands-on exercise.
 
 ## Next Session Hook
-Which status flags is the ALU committing to (Z, C, N, V), and what operations does it need to
-support? Now that he can build the V detector, lock the full flag set and operation list before
-drawing the Xschem schematic.
+Did the gate-level full adder simulate correctly across all 8 input combinations? If yes, we build
+the XOR gate in CMOS together — pull-up PMOS network and pull-down NMOS network, transistor by
+transistor — and discuss why the two networks are complementary duals.
 
 ## Project Context (for resuming)
 - Original 8-bit MCU, full-custom, GF180MCU-D PDK
 - Tooling: Xschem + ngspice
 - Deadline: 2026-10-01 (~14 weeks from session date)
-- Educational goal is a primary driver of design choices
+- Educational goal is the primary driver of design choices
+- Learning goal (Kevin's words): build a complex chip from basic building blocks; not smallest/fastest

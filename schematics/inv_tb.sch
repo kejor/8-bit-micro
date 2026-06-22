@@ -5,17 +5,16 @@ V {}
 S {}
 F {}
 E {}
-N 130 -200 180 -200 {lab=#net1}
-N 230 -280 230 -240 {lab=#net2}
+N 130 -200 180 -200 {lab=vin}
+N 230 -280 230 -240 {lab=#net1}
 N 230 -160 230 -110 {lab=0}
 N 320 -200 370 -200 {lab=vout}
 N 130 -140 130 -110 {lab=0}
 N 130 -110 230 -110 {lab=0}
 N 70 -240 70 -110 {lab=0}
 N 70 -110 130 -110 {lab=0}
-N 70 -300 230 -300 {lab=#net2}
-N 230 -300 230 -280 {lab=#net2}
-C {8-bit-micro/inv.sym} 200 -160 0 0 {name=x1}
+N 70 -300 230 -300 {lab=#net1}
+N 230 -300 230 -280 {lab=#net1}
 C {vsource.sym} 130 -170 0 0 {name=VIN value="0 PULSE('PAR_VDD' 0 PAR_DEL PAR_SLEW PAR_SLEW '0.5*PAR_PER' '1.0*PAR_PER')" savecurrent=false}
 C {gnd.sym} 230 -110 0 0 {name=l2 lab=0}
 C {lab_pin.sym} 370 -200 2 0 {name=p1 sig_type=std_logic lab=vout}
@@ -58,3 +57,4 @@ plot v(vin) v(vout)
 "}
 C {vsource.sym} 70 -270 0 0 {name=VDD value=PAR_VDD savecurrent=false}
 C {lab_pin.sym} 160 -200 1 0 {name=p2 sig_type=std_logic lab=vin}
+C {schematics/inv.sym} 200 -160 0 0 {name=x1}
