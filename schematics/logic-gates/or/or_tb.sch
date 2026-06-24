@@ -35,9 +35,7 @@ save all
 OP
 TRAN 1p 40n
 write TB_or.raw
-plot v(A)
-plot v(B)
-plot v(C)
+gnuplot or_plot v(A) v(B) v(C)
 .endc
 
 "}
