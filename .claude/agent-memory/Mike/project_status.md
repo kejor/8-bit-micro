@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-As of 2026-06-21, the project is in active development with ~14 weeks to the 2026-10-01 deadline.
+As of 2026-06-23, the project is in active development with ~14 weeks to the 2026-10-01 deadline.
 
 **Architecture pivot on 2026-06-21:** Project is no longer 6502-inspired. Kevin is now designing an original 8-bit microcontroller (not a 6502 clone or derivative). Instruction set, datapath, and control unit are to be defined by Kevin independently.
 
@@ -18,9 +18,12 @@ Milestone status:
 - [ ] Architecture study / reference schematic reviewed
 - [x] First subcircuit in Xschem (inverter, GF180MCU-D) — done 2026-06-11
 - [x] ngspice simulation of first subcircuit passing — done 2026-06-11
-- [x] AND gate schematic + testbench — done 2026-06-21 (building toward full adder)
-- [ ] OR gate + XOR gate schematics — in progress as of 2026-06-21
-- [ ] Full adder (from AND/OR/XOR cells)
+- [x] AND gate schematic + testbench — done 2026-06-23 (committed e020771)
+- [x] OR gate schematic + testbench — done 2026-06-23 (committed 6de9ea7)
+- [ ] XOR gate schematic + testbench — **next up**
+- [ ] Half adder (AND + XOR composed)
+- [ ] Full adder (two half adders + OR carry chain)
+- [ ] 8-bit ripple-carry adder — **target: simulating by 2026-07-04**
 - [ ] 8-bit ALU schematic + sim
 - [ ] Register file schematic + sim
 - [ ] Instruction fetch / decode schematic
@@ -46,7 +49,7 @@ Risk flags (updated 2026-06-11):
 - MCU scope pivot is a risk amplifier — must hold the line on CPU + bandgap only
 - Full-custom transistor-level CPU is already extremely ambitious; analog on top makes discipline critical
 - ADC, DAC, clock gen, and 5V process pivot are explicitly out of scope for October deadline
-- Week 2 priority: move from single cell to first functional block — start the 8-bit ALU
+- Week 3 priority (2026-06-23): AND and OR gates both completed. Next: XOR gate (this session or next), then half adder (AND+XOR composed), full adder (two half adders + OR carry), 8-bit ripple-carry adder. Target: 8-bit adder simulating by 2026-07-04. Must maintain ~one cell per session cadence to hit ALU by Aug 01. XOR is especially critical — it's the arithmetic core and directly computes the V (overflow) flag.
 
 **Why:** Deadline is hard (job hunting 2027). A CPU + one polished analog block is a better portfolio story than three half-finished blocks. Scope discipline is the difference between shipping and slipping.
 **How to apply:** Hold the line on CPU + bandgap. If CPU slips past August 1, cut bandgap scope (just design + sim, no layout). Raise alarm if any week goes by with zero commits.
