@@ -1,2 +1,2 @@
 - [User Profile](user_profile.md) — Kevin: full-custom Xschem/ngspice/sky130 flow, IIC-OSIC-TOOLS, deadline 2026-10-01
-- [Project Status](project_status.md) — milestone tracker and timeline risk flags, last updated 2026-06-06
+- [Project Status](project_status.md) — milestone tracker and timeline risk flags, last updated 2026-06-23
