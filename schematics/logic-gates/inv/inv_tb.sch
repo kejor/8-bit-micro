@@ -57,4 +57,4 @@ plot v(vin) v(vout)
 "}
 C {vsource.sym} 70 -270 0 0 {name=VDD value=PAR_VDD savecurrent=false}
 C {lab_pin.sym} 160 -200 1 0 {name=p2 sig_type=std_logic lab=vin}
-C {schematics/inv.sym} 200 -160 0 0 {name=x1}
+C {schematics/logic-gates/inv/inv.sym} 200 -160 0 0 {name=x1}

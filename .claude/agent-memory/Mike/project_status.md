@@ -20,8 +20,8 @@ Milestone status:
 - [x] ngspice simulation of first subcircuit passing — done 2026-06-11
 - [x] AND gate schematic + testbench — done 2026-06-23 (committed e020771)
 - [x] OR gate schematic + testbench — done 2026-06-23 (committed 6de9ea7)
-- [ ] XOR gate schematic + testbench — **next up**
-- [ ] Half adder (AND + XOR composed)
+- [x] XOR gate schematic + testbench — done 2026-06-25 (12T complementary static CMOS; topology chosen for rail-to-rail output driving fanned-out result bus and latched flags)
+- [ ] Half adder (AND + XOR composed) — **next up**
 - [ ] Full adder (two half adders + OR carry chain)
 - [ ] 8-bit ripple-carry adder — **target: simulating by 2026-07-04**
 - [ ] 8-bit ALU schematic + sim
@@ -49,7 +49,7 @@ Risk flags (updated 2026-06-11):
 - MCU scope pivot is a risk amplifier — must hold the line on CPU + bandgap only
 - Full-custom transistor-level CPU is already extremely ambitious; analog on top makes discipline critical
 - ADC, DAC, clock gen, and 5V process pivot are explicitly out of scope for October deadline
-- Week 3 priority (2026-06-23): AND and OR gates both completed. Next: XOR gate (this session or next), then half adder (AND+XOR composed), full adder (two half adders + OR carry), 8-bit ripple-carry adder. Target: 8-bit adder simulating by 2026-07-04. Must maintain ~one cell per session cadence to hit ALU by Aug 01. XOR is especially critical — it's the arithmetic core and directly computes the V (overflow) flag.
+- Week 3-4 update (2026-06-25): AND, OR, XOR all done. Bitwise logic layer of ALU complete. Next: half adder (AND+XOR composed), full adder (two half adders + OR carry), 8-bit ripple-carry adder. Target: 8-bit adder simulating by 2026-07-04. Must maintain ~one cell per session cadence to hit ALU by Aug 01. Note: the XOR gate doubles as the V (overflow) flag computation (XOR of carry_in[7] and carry_out[7]) — reuse that cell.
 
 **Why:** Deadline is hard (job hunting 2027). A CPU + one polished analog block is a better portfolio story than three half-finished blocks. Scope discipline is the difference between shipping and slipping.
 **How to apply:** Hold the line on CPU + bandgap. If CPU slips past August 1, cut bandgap scope (just design + sim, no layout). Raise alarm if any week goes by with zero commits.
