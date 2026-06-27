@@ -9,11 +9,11 @@ N 370 -250 430 -250 {lab=A}
 N 370 -210 430 -210 {lab=B}
 N 500 -160 500 -140 {lab=0}
 N 500 -310 500 -300 {lab=VDD}
-N 580 -250 600 -250 {lab=N_C}
-N 580 -210 620 -210 {lab=C}
+N 590 -210 630 -210 {lab=C}
+N 590 -250 630 -250 {lab=N_C}
 C {vsource.sym} 60 -170 0 0 {name=VIN_A value="0 PULSE('PAR_VDD' 0 PAR_DEL PAR_SLEW PAR_SLEW '0.5*PAR_PER' '1.0*PAR_PER')" savecurrent=false}
 C {gnd.sym} 180 -40 0 0 {name=l2 lab=0}
-C {lab_pin.sym} 591 -250 2 0 {name=p1 sig_type=std_logic lab=N_C}
+C {lab_pin.sym} 621 -250 2 0 {name=p1 sig_type=std_logic lab=N_C}
 C {code_shown.sym} 60 -420 0 0 {name=MODELS only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -42,7 +42,7 @@ plot v(A) v(B) v(C)
 C {vsource.sym} 60 -250 0 0 {name=VDD value=PAR_VDD savecurrent=false}
 C {schematics/logic-gates/xor/xor.sym} 430 -180 0 0 {name=x1}
 C {vsource.sym} 60 -90 0 0 {name=VIN_B value="0 PULSE('PAR_VDD' 0 PAR_DEL PAR_SLEW PAR_SLEW '1.0*PAR_PER' '2.0*PAR_PER')" savecurrent=false}
-C {lab_pin.sym} 610 -210 2 0 {name=p2 sig_type=std_logic lab=C}
+C {lab_pin.sym} 630 -210 2 0 {name=p2 sig_type=std_logic lab=C}
 C {lab_pin.sym} 500 -310 2 0 {name=p3 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} 500 -140 2 0 {name=p4 sig_type=std_logic lab=0}
 C {lab_pin.sym} 60 -60 2 0 {name=p6 sig_type=std_logic lab=0}
